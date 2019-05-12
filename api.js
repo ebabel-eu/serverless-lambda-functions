@@ -7,6 +7,9 @@ const getPizzas = require('./controllers/get-pizzas');
 // Instantiate a Claudia API.
 const api = new Api();
 
+// Routing when no controller is specified, at the root of the api.
+api.get('/', () => 'Pizzas entity can be accessed with /pizzas endpoint.');
+
 // Routing to list all pizzas.
 api.get('/pizzas', () => {
   return getPizzas()
