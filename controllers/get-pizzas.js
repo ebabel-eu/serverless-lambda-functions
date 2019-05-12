@@ -1,11 +1,5 @@
-const getPizzas = () => {
-  return [
-    'Capricciosa',
-    'Quattro Formaggi',
-    'Napoletana',
-    'Margherita',
-    'Pineapple',
-  ];
-};
+const pizzas = require('../data/pizzas.json');
+
+const getPizzas = () => pizzas;
 
 module.exports = getPizzas;
