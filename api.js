@@ -8,7 +8,7 @@ const getPizzas = require('./controllers/get-pizzas');
 const api = new Api();
 
 // Routing when no controller is specified, at the root of the api.
-api.get('/', () => 'Pizzas entity can be accessed with /pizzas endpoint.');
+api.get('/', () => 'Pizzas entity can be accessed with /latest/pizzas endpoint.');
 
 // Routing to list all pizzas.
 api.get('/pizzas', () => {
