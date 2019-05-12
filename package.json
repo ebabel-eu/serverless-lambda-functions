@@ -1,0 +1,24 @@
+{
+  "name": "serverless-lambda-functions",
+  "version": "1.0.0",
+  "description": "Learn how to use AWS Lambda functions.",
+  "main": "api.js",
+  "scripts": {
+    "create": "claudia create --region eu-central-1 --api-module api",   
+    "update": "claudia update",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebabel-eu/serverless-lambda-functions.git"
+  },
+  "author": "Thomas Amar <hello@ebabel.eu>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ebabel-eu/serverless-lambda-functions/issues"
+  },
+  "homepage": "https://github.com/ebabel-eu/serverless-lambda-functions#readme",
+  "devDependencies": {
+    "claudia": "^5.4.2"
+  }
+}
