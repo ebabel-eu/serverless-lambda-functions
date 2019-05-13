@@ -14,4 +14,6 @@ const getPizzas = (pizzaId) => {
   throw new Error(`Pizza ${pizzaId || ''} could not be found.`);
 };
 
-module.exports = getPizzas;
+module.exports = {
+  getPizzas,
+};
