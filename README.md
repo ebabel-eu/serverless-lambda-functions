@@ -32,3 +32,11 @@ The successsful response should mention a "url" for your "api". Append `/pizzas`
 ```
 npm run update
 ```
+
+## todo
+- Switch to Typescript.
+- Add linting.
+- Add unit tests with Jest and test coverage report (istanbul).
+- JSDoc documentation.
+- Setup working locally.
+- In each API response, link to other useful endpoints.
