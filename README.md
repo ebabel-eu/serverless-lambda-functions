@@ -21,6 +21,7 @@ In `credentials` file, write your AWS access key and your AWS secret access key.
 
 ## Deploy to AWS the first time
 ```
+rm claudia.json
 npm run create
 ```
 
