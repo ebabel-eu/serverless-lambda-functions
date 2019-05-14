@@ -40,6 +40,7 @@ npm run update
 ```
 
 ## todo
+- PUT to orders entity is broken and makes every order become null.
 - Switch to Typescript.
 - Add linting.
 - Add unit tests with Jest and test coverage report (istanbul).
