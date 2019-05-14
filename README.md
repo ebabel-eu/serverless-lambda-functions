@@ -10,14 +10,19 @@ npm install
 Besides signing up to AWS, you also need to setup keys for Claudia to access your AWS resources.
 
 ```
-cd ~
-mkdir .aws
-cd .aws
-touch credentials
-vi credentials
+mkdir ~/.aws
+touch ~/.aws/credentials
+vi ~/.aws/credentials
 ```
 
 In `credentials` file, write your AWS access key and your AWS secret access key. Note these should never be shared publicly or commited to a repository. The AWS key is generated in the IAM management console, when you login to AWS. If you don't know what your secret access key is, it's best to create a new one, since Amazon will only communicate that key once, when it's created, and won't give it again.
+
+content of  the file `credentials`:
+```
+[default]
+aws_access_key_id=YOUR_ACCESS_KEY
+aws_secret_access_key=YOUR_ACCESS_SECRET
+```
 
 ## Deploy to AWS the first time
 ```
