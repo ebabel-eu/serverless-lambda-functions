@@ -81,10 +81,10 @@ const putOrders = (orderId, payload) => {
   };
 
   orders = orders.map((o) => {
-    if (o.id === orderId) {
-      return updatedOrder;
-    }
+    return (o.id === Number(orderId)) ? updatedOrder : o;
   });
+
+  return updatedOrder;
 };
 
 /**
