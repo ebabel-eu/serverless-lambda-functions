@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "serverless-lambda-functions-executor",
+    "name": "serverless-lambda-functions",
+    "region": "eu-west-1"
+  },
+  "api": {
+    "id": "jj0hc324sh",
+    "module": "api"
+  }
+}

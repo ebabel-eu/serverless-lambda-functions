@@ -26,6 +26,7 @@ aws_secret_access_key=YOUR_ACCESS_SECRET
 
 ## Deploy to AWS the first time
 ```
+rm claudia.json
 npm run create
 ```
 
