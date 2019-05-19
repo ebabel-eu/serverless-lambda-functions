@@ -1,5 +1,5 @@
 {
-  "name": "serverless-lambda-functions",
+  "name": "serverless-lambda-functions-dave",
   "version": "1.0.0",
   "description": "Learn how to use AWS Lambda functions.",
   "main": "api.js",
