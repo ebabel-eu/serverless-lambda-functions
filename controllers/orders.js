@@ -1,6 +1,8 @@
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
 const { getPizzas } = require('./pizzas');
 
-let orders = [];
 let orderIdSeed = 0;
 
 /**
@@ -38,9 +40,21 @@ const postOrders = (payload) => {
     id: orderIdSeed,
   };
 
-  orders.push(order);
-
-  return order;
+  return docClient.put({
+    TableName: 'pizza-orders',
+    Item: {
+      orderId: orderIdSeed,
+      pizza: order.pizzaName,
+      deliveryAddress: order.deliveryAddress,
+      status: order.status,
+    },
+  }).promise()
+  .then((response) => {
+    return response;
+  })
+  .catch((error) => {
+    throw error;
+  });
 };
 
 /**
