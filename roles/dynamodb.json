@@ -1,0 +1,16 @@
+{
+  "Version": "2019-05-21",
+  "Statement": [
+    {
+      "Action": [
+        "dynamodb:Scan",
+        "dynamodb:DeleteItem",
+        "dynamodb:GetItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
