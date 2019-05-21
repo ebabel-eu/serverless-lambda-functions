@@ -34,6 +34,7 @@ const postOrders = (payload) => {
     ...payload,
     pizzaId: pizza.id,
     pizzaName: pizza.name,
+    status: 'pending',
     id: orderIdSeed,
   };
 
@@ -76,8 +77,9 @@ const putOrders = (orderId, payload) => {
   }
 
   const updatedOrder = {
-    ...order,
-    ...payload,
+    ...order,     // Existing data.
+    ...payload,   // Overwrite any existing data with the payload,
+    id: order.id, // but preserve the order id.
   };
 
   orders = orders.map((o) => {
