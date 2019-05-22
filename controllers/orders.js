@@ -5,9 +5,10 @@ const { getPizzas } = require('./pizzas');
 
 /**
  * Return an order found from a given orderId, or return undefined if not found.
+ * @param {array} orders
  * @param {string} orderId 
  */
-const findOrderById = (orderId) => orders.find(o => o.orderId === Number(orderId));
+const findOrderById = (orders, orderId) => orders.find(o => o.orderId === orderId);
 
 /**
  * Throw an error because the given orderId cannot be found.
@@ -46,7 +47,7 @@ const postOrders = (payload) => {
     },
   }).promise()
   .then((response) => {
-    return response;
+    return response ? order : new Error(`Order ${orderId} could not be created.`);
   })
   .catch((error) => {
     throw error;
@@ -55,25 +56,33 @@ const postOrders = (payload) => {
 
 /**
  * Get an existing order when orderId is specified, or list all orders when no orderId is given.
- * @param {Number?} orderId 
+ * @param {string?} orderId 
  */
 const getOrders = (orderId) => {
-  if (!orderId) {
-    return orders;
-  }
+  return docClient.scan({
+    TableName: 'pizza-orders',
+  }).promise()
+  .then((result) => {
+    if (!orderId) {
+      return result.Items;
+    }
+  
+    const order = findOrderById(result.Items, orderId);
 
-  const order = findOrderById(orderId);
-
-  if (order) {
-    return order;
-  }
-
-  return orderNotFound(orderId);
+    if (order) {
+      return order;
+    }
+  
+    return orderNotFound(orderId);
+  })
+  .catch((error) => {
+    throw error;
+  });
 };
 
 /**
  * Update an existing order.
- * @param {Number} orderId 
+ * @param {string} orderId 
  */
 const putOrders = (orderId, payload) => {
   if (!orderId || !payload) {
@@ -101,7 +110,7 @@ const putOrders = (orderId, payload) => {
 
 /**
  * Delete an existing order.
- * @param {Number} orderId 
+ * @param {string} orderId 
  */
 const deleteOrders = (orderId) => {
   if (!orderId) {
