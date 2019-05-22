@@ -1,6 +1,8 @@
 # serverless-lambda-functions
 Learn how to use AWS Lambda functions.
 
+This repository is based on the exercises of the book [Serverless Applications with Node.js](https://www.manning.com/books/serverless-applications-with-node-js) by [Slobodan Stojanović](https://twitter.com/slobodan_?lang=en) and [Aleksandar Simović](https://twitter.com/simalexan?lang=en)
+
 ## Install
 ```
 npm install
