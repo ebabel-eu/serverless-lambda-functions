@@ -6,7 +6,7 @@
   "scripts": {
     "create": "claudia create --region eu-west-1 --api-module api",
     "update": "claudia update",
-    "test": "jest"
+    "test": "node spec/support/jasmine-runner.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,10 @@
   "homepage": "https://github.com/ebabel-eu/serverless-lambda-functions#readme",
   "devDependencies": {
     "claudia": "^5.4.2",
-    "jest": "^24.8.0"
+    "dotenv": "^8.0.0",
+    "fake-http-request": "^1.4.0",
+    "jasmine": "^3.4.0",
+    "jasmine-spec-reporter": "^4.2.1"
   },
   "dependencies": {
     "aws-sdk": "^2.459.0",
