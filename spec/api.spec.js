@@ -1,7 +1,9 @@
 'use strict';
 
-describe('basic unit test', () => {
-  it('should always be true', () => {
-    expect(true).toBe(true);
-  });  
+const api = require('../api');
+
+describe('api', () => {
+  it('should be defined', () => {
+    expect(api).toBeDefined();
+  });
 });

@@ -1,7 +1,9 @@
 'use strict';
 
-describe('basic unit test', () => {
-  it('should always be true', () => {
-    expect(true).toBe(true);
-  });  
+const pizzas = require('../../controllers/pizzas');
+
+describe('pizzas', () => {
+  it('should be defined', () => {
+    expect(pizzas).toBeDefined();
+  });
 });
