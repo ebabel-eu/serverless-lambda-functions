@@ -93,7 +93,8 @@ arn:aws:dynamodb:eu-west-1:981192392543:table/pizza-orders
 ```
 
 ## todo
-- PUT to orders entity is broken and makes every order become null.
+- Setup GraphQL in front of each end point to let the client decide how to query the data.
+- Abstract crud code and inherit for each controller, so that pizzas and orders can run the same functionality.
 - Switch to Typescript.
 - Add linting.
 - Add unit tests with Jest and test coverage report (istanbul).
