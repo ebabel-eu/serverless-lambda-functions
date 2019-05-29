@@ -129,19 +129,26 @@ const deleteOrders = (orderId) => {
     throw new Error('Supply the orderId of the order you wish to delete.');
   }
 
-  const order = findOrderById(orderId);
-  const index = orders.indexOf(order);
+  return docClient.delete({
+    TableName: 'pizza-orders',
+    Key: {
+      orderId,
+    },
+    ConditionExpression: 'orderId = :orderId',
+    ExpressionAttributeValues: {
+      ':orderId': orderId,
+    },
+  }).promise()
+    .then((result) => {
+      if (!result) {
+        throw new Error('Deletion of order failed.');
+      }
 
-  if (!order) {
-    return orderNotFound(orderId);
-  }
-
-  orders.splice(index, 1);
-
-  return {
-    deleted: order,
-    orders,
-  };
+      return `Order ${orderId} has been deleted.`;
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
 
 module.exports = {
